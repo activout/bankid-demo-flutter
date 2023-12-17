@@ -1,16 +1,20 @@
-# bankid_demo
+# BankID in Flutter demo
 
-A BankID in Flutter demo
+Current status: proof-of-concept
 
-## Getting Started
+Compatible backend in .NET: https://github.com/activout/bankid-demo-backend-dotnet
 
-This project is a starting point for a Flutter application.
+Code to launch BankID app:
 
-A few resources to get you started if this is your first Flutter project:
+```dart
+    final dio = Dio(BaseOptions(baseUrl: 'http://172.16.1.154:5124/api/'));
+    final client = BankIdClient(dio);
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+    final response = await client.auth();
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    var url =
+        'https://app.bankid.com/?autostarttoken=${response.autoStartToken}&redirect=null';
+    if (!await launchUrl(Uri.parse(url))) {
+      throw Exception('Could not launch $url');
+    }
+```
