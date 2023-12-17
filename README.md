@@ -2,7 +2,8 @@
 
 Current status: proof-of-concept
 
-Compatible backend in .NET: https://github.com/activout/bankid-demo-backend-dotnet
+Compatible backend in .NET: 
+[activout/bankid-demo-backend-dotnet](https://github.com/activout/bankid-demo-backend-dotnet)
 
 Code to launch BankID app:
 
@@ -18,3 +19,11 @@ Code to launch BankID app:
       throw Exception('Could not launch $url');
     }
 ```
+
+
+## TODO
+
+- [ ] Add polling of /collect
+- [ ] Add cancel
+- [ ] Add sign
+- [ ] Make server return a JWT for the client to use for some protected server API
