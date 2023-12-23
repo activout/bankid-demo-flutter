@@ -29,7 +29,7 @@ Code to launch BankID app:
 - [ ] Make server return a JWT for the client to use for some protected server API
 
 
-## Questions or support?
+## Need help implementing BankID?
 
 Contact [david@activout.se](mailto:david@activout.se) to order a support package, starting at 20000 SEK or 1800 EUR or 2000 USD.
 
