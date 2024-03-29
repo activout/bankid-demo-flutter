@@ -7,10 +7,6 @@ part 'bankid_state.freezed.dart';
 abstract class BankIdState with _$BankIdState {
   const factory BankIdState.initial() = _Initial;
 
-//  const factory BankIdState.auth() = _Auth;
-
-//  const factory BankIdState.sign() = _Sign;
-
   const factory BankIdState.pending() = _Pending;
 
   const factory BankIdState.complete(CompletionData completionData) = _Complete;

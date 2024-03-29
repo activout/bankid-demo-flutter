@@ -20,10 +20,10 @@ class _BankIdClient implements BankIdClient {
 
   @override
   Future<AuthResponse> auth() async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<AuthResponse>(Options(
       method: 'POST',
@@ -47,10 +47,10 @@ class _BankIdClient implements BankIdClient {
 
   @override
   Future<AuthResponse> sign() async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<AuthResponse>(Options(
       method: 'POST',
@@ -74,7 +74,7 @@ class _BankIdClient implements BankIdClient {
 
   @override
   Future<CollectResponse> collect(OrderRefRequest request) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = request;
@@ -101,7 +101,7 @@ class _BankIdClient implements BankIdClient {
 
   @override
   Future<dynamic> cancel(OrderRefRequest request) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = request;
