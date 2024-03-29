@@ -23,9 +23,6 @@ Code to launch BankID app:
 
 ## TODO
 
-- [ ] Add polling of /collect
-- [ ] Add cancel
-- [ ] Add sign
 - [ ] Make server return a JWT for the client to use for some protected server API
 
 
