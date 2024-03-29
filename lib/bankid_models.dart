@@ -2,8 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
 part 'bankid_models.freezed.dart';
-// optional: Since our Person class is serializable, we must add this line.
-// But if Person was not serializable, we could skip it.
 part 'bankid_models.g.dart';
 
 @freezed
