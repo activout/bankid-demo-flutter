@@ -18,5 +18,5 @@ abstract class BankIdClient {
   Future<CollectResponse> collect(@Body() OrderRefRequest request);
 
   @POST('cancel')
-  Future<CollectResponse> cancel(@Body() OrderRefRequest request);
+  Future cancel(@Body() OrderRefRequest request);
 }
