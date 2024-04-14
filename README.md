@@ -1,22 +1,21 @@
-# BankID in Flutter demo - Firebase functions+auth version
+# BankID in Flutter demo - Firebase functions version
 
 Current status: proof-of-concept
 
-Compatible backend in .NET: 
+Compatible backend using Firebase functions:
 [activout/bankid-demo-backend-firebase](https://github.com/activout/bankid-demo-backend-firebase)
 
 Code to launch BankID app:
 
 ```dart
-    final client = BankIdFirebaseClient();
+final client = BankIdFirebaseClient();
 
-    final response = await client.auth();
+final response = await client.auth();
 
-    var url =
-        'https://app.bankid.com/?autostarttoken=${response.autoStartToken}&redirect=null';
-    if (!await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)) {
-      throw Exception('Could not launch $url');
-    }
+var url = 'https://app.bankid.com/?autostarttoken=${response.autoStartToken}&redirect=null';
+if (!await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)) {
+  throw Exception('Could not launch $url');
+}
 ```
 
 ## Setup
@@ -37,12 +36,18 @@ to the repository:
 
 ## TODO
 
-- [ ] Make server return a JWT for the client to use for some protected server API
+- [ ] Make /collect create a Firebase Auth custom token
+
+
+## See also
+
+* BankID Flutter demo app for use with .NET backend: [activout/bankid-demo-flutter](https://github.com/activout/bankid-demo-flutter)
+* BankID demo backend in .NET for Flutter app: [activout/bankid-demo-backend-dotnet](https://github.com/activout/bankid-demo-backend-dotnet)
 
 
 ## Need help implementing BankID?
 
-Contact [david@activout.se](mailto:david@activout.se) to order a support package, starting at 20000 SEK or 1800 EUR or 2000 USD.
+Contact [david@activout.se](mailto:david@activout.se) to order a support package.
 
 ## License
 
