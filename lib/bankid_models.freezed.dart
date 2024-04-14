@@ -390,7 +390,7 @@ Device _$DeviceFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Device {
   String get ipAddress => throw _privateConstructorUsedError;
-  String get uniqueHardwareId => throw _privateConstructorUsedError;
+  String? get uhi => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -402,7 +402,7 @@ abstract class $DeviceCopyWith<$Res> {
   factory $DeviceCopyWith(Device value, $Res Function(Device) then) =
       _$DeviceCopyWithImpl<$Res, Device>;
   @useResult
-  $Res call({String ipAddress, String uniqueHardwareId});
+  $Res call({String ipAddress, String? uhi});
 }
 
 /// @nodoc
@@ -419,17 +419,17 @@ class _$DeviceCopyWithImpl<$Res, $Val extends Device>
   @override
   $Res call({
     Object? ipAddress = null,
-    Object? uniqueHardwareId = null,
+    Object? uhi = freezed,
   }) {
     return _then(_value.copyWith(
       ipAddress: null == ipAddress
           ? _value.ipAddress
           : ipAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      uniqueHardwareId: null == uniqueHardwareId
-          ? _value.uniqueHardwareId
-          : uniqueHardwareId // ignore: cast_nullable_to_non_nullable
-              as String,
+      uhi: freezed == uhi
+          ? _value.uhi
+          : uhi // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -441,7 +441,7 @@ abstract class _$$DeviceImplCopyWith<$Res> implements $DeviceCopyWith<$Res> {
       __$$DeviceImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String ipAddress, String uniqueHardwareId});
+  $Res call({String ipAddress, String? uhi});
 }
 
 /// @nodoc
@@ -456,17 +456,17 @@ class __$$DeviceImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? ipAddress = null,
-    Object? uniqueHardwareId = null,
+    Object? uhi = freezed,
   }) {
     return _then(_$DeviceImpl(
       ipAddress: null == ipAddress
           ? _value.ipAddress
           : ipAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      uniqueHardwareId: null == uniqueHardwareId
-          ? _value.uniqueHardwareId
-          : uniqueHardwareId // ignore: cast_nullable_to_non_nullable
-              as String,
+      uhi: freezed == uhi
+          ? _value.uhi
+          : uhi // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -474,7 +474,7 @@ class __$$DeviceImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$DeviceImpl with DiagnosticableTreeMixin implements _Device {
-  const _$DeviceImpl({required this.ipAddress, required this.uniqueHardwareId});
+  const _$DeviceImpl({required this.ipAddress, required this.uhi});
 
   factory _$DeviceImpl.fromJson(Map<String, dynamic> json) =>
       _$$DeviceImplFromJson(json);
@@ -482,11 +482,11 @@ class _$DeviceImpl with DiagnosticableTreeMixin implements _Device {
   @override
   final String ipAddress;
   @override
-  final String uniqueHardwareId;
+  final String? uhi;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Device(ipAddress: $ipAddress, uniqueHardwareId: $uniqueHardwareId)';
+    return 'Device(ipAddress: $ipAddress, uhi: $uhi)';
   }
 
   @override
@@ -495,7 +495,7 @@ class _$DeviceImpl with DiagnosticableTreeMixin implements _Device {
     properties
       ..add(DiagnosticsProperty('type', 'Device'))
       ..add(DiagnosticsProperty('ipAddress', ipAddress))
-      ..add(DiagnosticsProperty('uniqueHardwareId', uniqueHardwareId));
+      ..add(DiagnosticsProperty('uhi', uhi));
   }
 
   @override
@@ -505,13 +505,12 @@ class _$DeviceImpl with DiagnosticableTreeMixin implements _Device {
             other is _$DeviceImpl &&
             (identical(other.ipAddress, ipAddress) ||
                 other.ipAddress == ipAddress) &&
-            (identical(other.uniqueHardwareId, uniqueHardwareId) ||
-                other.uniqueHardwareId == uniqueHardwareId));
+            (identical(other.uhi, uhi) || other.uhi == uhi));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, ipAddress, uniqueHardwareId);
+  int get hashCode => Object.hash(runtimeType, ipAddress, uhi);
 
   @JsonKey(ignore: true)
   @override
@@ -530,14 +529,14 @@ class _$DeviceImpl with DiagnosticableTreeMixin implements _Device {
 abstract class _Device implements Device {
   const factory _Device(
       {required final String ipAddress,
-      required final String uniqueHardwareId}) = _$DeviceImpl;
+      required final String? uhi}) = _$DeviceImpl;
 
   factory _Device.fromJson(Map<String, dynamic> json) = _$DeviceImpl.fromJson;
 
   @override
   String get ipAddress;
   @override
-  String get uniqueHardwareId;
+  String? get uhi;
   @override
   @JsonKey(ignore: true)
   _$$DeviceImplCopyWith<_$DeviceImpl> get copyWith =>

@@ -30,7 +30,7 @@ class User with _$User {
 class Device with _$Device {
   const factory Device({
     required String ipAddress,
-    required String uniqueHardwareId,
+    required String? uhi,
   }) = _Device;
 
   factory Device.fromJson(Map<String, dynamic> json) => _$DeviceFromJson(json);

@@ -1,18 +1,13 @@
+import 'package:bankid_demo/bankid_firebase_client.dart';
 import 'package:bankid_demo/bankid_models.dart';
 import 'package:bankid_demo/bankid_state.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'bankid_client.dart';
-
 class BankIdService extends StateNotifier<BankIdState> {
-  final BankIdClient _client = BankIdClient(Dio(BaseOptions(
-      baseUrl: 'http://172.16.1.154:5124/api/',
-      //baseUrl: 'http://192.168.152.232:5124/api/',
-      contentType: Headers.jsonContentType)));
   String? _orderRef;
+  final BankIdFirebaseClient _client = BankIdFirebaseClient();
 
   BankIdService() : super(const BankIdState.initial()) {
     debugPrint('BankIdService constructor');
@@ -26,6 +21,7 @@ class BankIdService extends StateNotifier<BankIdState> {
       final response = await _client.auth();
       await _handleAuthResponse(response);
     } catch (e) {
+      debugPrint(e.toString());
       state = BankIdState.failed(e.toString());
     }
   }
@@ -34,7 +30,8 @@ class BankIdService extends StateNotifier<BankIdState> {
     _orderRef = response.orderRef;
     var url =
         'https://app.bankid.com/?autostarttoken=${response.autoStartToken}&redirect=null';
-    if (!await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)) {
+    if (!await launchUrl(Uri.parse(url),
+        mode: LaunchMode.externalApplication)) {
       await _cancel();
       state = BankIdState.failed('Could not launch $url');
       return;
@@ -63,11 +60,8 @@ class BankIdService extends StateNotifier<BankIdState> {
   }
 
   Future _cancel() async {
-    if (_orderRef == null) {
-      return;
-    }
     try {
-      await _client.cancel(OrderRefRequest(orderRef: _orderRef!));
+      await _client.cancel(_orderRef);
     } catch (e) {
       debugPrint(e.toString());
     }
@@ -90,8 +84,7 @@ class BankIdService extends StateNotifier<BankIdState> {
       return;
     }
     try {
-      final response =
-          await _client.collect(OrderRefRequest(orderRef: _orderRef!));
+      final response = await _client.collect(_orderRef!);
       debugPrint(response.status);
       if (response.status.toLowerCase() == 'pending') {
         // keep trying

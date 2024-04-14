@@ -35,13 +35,13 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
 
 _$DeviceImpl _$$DeviceImplFromJson(Map<String, dynamic> json) => _$DeviceImpl(
       ipAddress: json['ipAddress'] as String,
-      uniqueHardwareId: json['uniqueHardwareId'] as String,
+      uhi: json['uhi'] as String?,
     );
 
 Map<String, dynamic> _$$DeviceImplToJson(_$DeviceImpl instance) =>
     <String, dynamic>{
       'ipAddress': instance.ipAddress,
-      'uniqueHardwareId': instance.uniqueHardwareId,
+      'uhi': instance.uhi,
     };
 
 _$CompletionDataImpl _$$CompletionDataImplFromJson(Map<String, dynamic> json) =>
