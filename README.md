@@ -15,7 +15,7 @@ Code to launch BankID app:
 
     var url =
         'https://app.bankid.com/?autostarttoken=${response.autoStartToken}&redirect=null';
-    if (!await launchUrl(Uri.parse(url))) {
+    if (!await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)) {
       throw Exception('Could not launch $url');
     }
 ```
