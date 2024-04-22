@@ -1,0 +1,30 @@
+name: Flutter CI
+
+on:
+  pull_request:
+    branches: [ main ] 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v4
+
+    - uses: kuhnroyal/flutter-fvm-config-action@v2
+      id: fvm-config-action
+
+    - uses: subosito/flutter-action@v2
+      with:
+        flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
+        channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
+
+    - run: flutter pub get
+    
+    - run: dart format --set-exit-if-changed .
+    
+    - run: flutter analyze .
+    
+#    - run: flutter test
+    
+#    - run: flutter build web --no-pub --no-tree-shake-icons

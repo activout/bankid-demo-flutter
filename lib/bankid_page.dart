@@ -129,7 +129,8 @@ class CompleteView extends StatelessWidget {
           title: Text('Name: ${_completionData.user.name}'),
         ),
         ListTile(
-          title: Text('Personal number: ${_completionData.user.personalNumber}'),
+          title:
+              Text('Personal number: ${_completionData.user.personalNumber}'),
         ),
       ],
     );
