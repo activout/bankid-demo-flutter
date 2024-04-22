@@ -34,7 +34,8 @@ class BankIdService extends StateNotifier<BankIdState> {
     _orderRef = response.orderRef;
     var url =
         'https://app.bankid.com/?autostarttoken=${response.autoStartToken}&redirect=null';
-    if (!await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)) {
+    if (!await launchUrl(Uri.parse(url),
+        mode: LaunchMode.externalApplication)) {
       await _cancel();
       state = BankIdState.failed('Could not launch $url');
       return;
