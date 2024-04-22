@@ -42,10 +42,11 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-
 # Firebase configuration. See README.md why these are ignored!
 android/app/google-services.json
 ios/Runner/GoogleService-Info.plist
 ios/firebase_app_id_file.json
 lib/firebase_options.dart
 
+# FVM Version Cache
+.fvm/
