@@ -25,6 +25,6 @@ jobs:
     
     - run: flutter analyze .
     
-#    - run: flutter test
+    - run: flutter test
     
 #    - run: flutter build web --no-pub --no-tree-shake-icons

@@ -1,0 +1,37 @@
+name: Update Flutter Version in FVM
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 1 * *' # Monthly on the 1st day
+
+env:
+  CI: true
+
+jobs:
+  update-flutter-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: Install FVM
+        run: dart pub global activate fvm
+
+      - name: Run fvm doctor
+        run: fvm doctor
+
+      - name: Run FVM use stable --pin
+        run: fvm use stable --pin
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "Update Flutter version to latest stable"
+          title: "Update Flutter version to latest stable"
+          body: "This PR updates the Flutter version to the latest stable release.\n\nTip: close and reopen this PR to trigger the GitHub Action for PRs!"
+          branch: "update-flutter-stable-${{ github.run_number }}"
+          delete-branch: true
