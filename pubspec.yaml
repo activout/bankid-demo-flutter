@@ -46,7 +46,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^2.5.7
-  json_serializable: ^6.9.0
+  json_serializable: ^6.9.3
   retrofit_generator: ^9.1.7
 
 
