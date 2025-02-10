@@ -29,7 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.8
-  dio: ^5.7.0
+  dio: ^5.8.0+1
   flutter:
     sdk: flutter
   flutter_state_notifier: ^1.0.0
@@ -47,7 +47,7 @@ dev_dependencies:
     sdk: flutter
   freezed: ^2.5.7
   json_serializable: ^6.9.3
-  retrofit_generator: ^9.1.7
+  retrofit_generator: ^9.1.9
 
 
 # For information on the generic Dart part of this file, see the
