@@ -484,18 +484,18 @@ packages:
     dependency: "direct main"
     description:
       name: retrofit
-      sha256: "699cf44ec6c7fc7d248740932eca75d334e36bdafe0a8b3e9ff93100591c8a25"
+      sha256: be571b11e3d7c62d0894fc193d1199864f761fc84bf8ccca5efe0bb0b6b0c38b
       url: "https://pub.dev"
     source: hosted
-    version: "4.7.2"
+    version: "4.7.3"
   retrofit_generator:
     dependency: "direct dev"
     description:
       name: retrofit_generator
-      sha256: "4a2ac0364eb7d5975f71450dfd553b1591ecffad96438a01ce88494a266bceb4"
+      sha256: "5827551e2496f2c9586e4f23eedd6ce0b519286d2f405f91bf70f342a96b48ce"
       url: "https://pub.dev"
     source: hosted
-    version: "10.0.5"
+    version: "10.0.6"
   shelf:
     dependency: transitive
     description:
