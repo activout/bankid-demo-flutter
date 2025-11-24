@@ -1,5 +1,4 @@
 import 'package:bankid_demo/bankid_client.dart';
-import 'package:bankid_demo/bankid_models.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 
