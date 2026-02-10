@@ -11,7 +11,7 @@ abstract class BankIdClient {
   @POST('auth')
   Future<AuthResponse> auth();
 
-  @POST('auth')
+  @POST('sign')
   Future<AuthResponse> sign();
 
   @POST('collect')
