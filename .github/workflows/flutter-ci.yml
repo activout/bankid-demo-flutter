@@ -11,16 +11,7 @@ jobs:
 
     - uses: actions/checkout@v5
 
-    - name: Parse FVM configuration
-      id: fvm-config-action
-      run: |
-        echo "FLUTTER_VERSION=$(jq -r '.flutter // empty' .fvmrc)" >> $GITHUB_OUTPUT
-        echo "FLUTTER_CHANNEL=$(jq -r '.channel // empty' .fvmrc)" >> $GITHUB_OUTPUT
-
-    - uses: subosito/flutter-action@v2
-      with:
-        flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
-        channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
+    - uses: kuhnroyal/flutter-fvm-config-action/setup@v3
 
     - run: flutter pub get
     
