@@ -9,10 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
-    - uses: kuhnroyal/flutter-fvm-config-action@v2
+    - name: Parse FVM configuration
       id: fvm-config-action
+      run: |
+        echo "FLUTTER_VERSION=$(jq -r '.flutter // empty' .fvmrc)" >> $GITHUB_OUTPUT
+        echo "FLUTTER_CHANNEL=$(jq -r '.channel // empty' .fvmrc)" >> $GITHUB_OUTPUT
 
     - uses: subosito/flutter-action@v2
       with:
