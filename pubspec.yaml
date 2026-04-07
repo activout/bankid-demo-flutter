@@ -46,8 +46,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^3.2.5
-  json_serializable: ^6.11.2
-  retrofit_generator: ^10.2.3
+  json_serializable: ^6.13.1
+  retrofit_generator: ^10.2.4
 
 
 # For information on the generic Dart part of this file, see the
