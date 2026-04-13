@@ -47,7 +47,7 @@ dev_dependencies:
     sdk: flutter
   freezed: ^3.2.5
   json_serializable: ^6.13.1
-  retrofit_generator: ^10.2.4
+  retrofit_generator: ^10.2.5
 
 
 # For information on the generic Dart part of this file, see the
