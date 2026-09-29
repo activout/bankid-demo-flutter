@@ -28,6 +28,7 @@ jobs:
         run: fvm use stable --pin
 
       - name: Create Pull Request
+        id: cpr
         uses: peter-evans/create-pull-request@v8
         with:
           # PAT/App token so CI runs on the PR; GITHUB_TOKEN-created PRs don't trigger workflows
@@ -37,3 +38,9 @@ jobs:
           body: "This PR updates the Flutter version to the latest stable release."
           branch: "update-flutter-stable"
           delete-branch: true
+
+      - name: Enable auto-merge
+        if: steps.cpr.outputs.pull-request-number
+        run: gh pr merge --auto --rebase "${{ steps.cpr.outputs.pull-request-number }}"
+        env:
+          GH_TOKEN: ${{ secrets.FVM_UPDATE_TOKEN || github.token }}
