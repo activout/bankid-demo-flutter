@@ -476,10 +476,10 @@ packages:
     dependency: "direct dev"
     description:
       name: retrofit_generator
-      sha256: "9d6eddb495edd114d546d875ef165f557dca0dbcbdf6787b9255a4a52d40f15b"
+      sha256: "4524b2074e42304f8183a81ad4169783d1d0363d18a2029aa9250b4ac596c664"
       url: "https://pub.dev"
     source: hosted
-    version: "10.2.11"
+    version: "10.2.12"
   shelf:
     dependency: transitive
     description:
